@@ -34,7 +34,7 @@ You can test the live version of the project at [http://dev.beylaai.com](http://
 1. **Clone the Repository**
 
     ```bash
-    git clone https://github.com/yourusername/project-management-tool.git
+    git clone https://github.com/OMOJUNIOR/project-management-tool
     cd project-management-tool
     ```
 
