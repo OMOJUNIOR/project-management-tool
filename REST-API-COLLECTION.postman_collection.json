@@ -1,0 +1,1274 @@
+{
+	"info": {
+		"_postman_id": "b3792d24-df2f-4d5e-af6d-4aa12b2e1bfe",
+		"name": "REST-API-COLLECTION",
+		"description": "The Project Management Tool provides a RESTful API for managing projects and tasks. The API is accessible via the \\`/api/v1\\` endpoint and requires authentication using API tokens.  \n  \n  \nUsers can create an API token from their dashboard. This token must be included in the \\`Authorization\\` header as a Bearer token for all API requests.  \n  \nAuthorization: Bearer {API_TOKEN} (Replace {API_TOKEN} with your actual API token) Content-Type: application/json  \n  \n  \nRole-Based Access Control : Admin users can manage all projects and tasks, while regular users can only manage their own tasks.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18078459"
+	},
+	"item": [
+		{
+			"name": "Project",
+			"item": [
+				{
+					"name": "CreateProject",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"New Project 2\",\n    \"description\": \"This is a description of the new project.\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v1/projects",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"projects"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "CreateProject",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"New Project 2\",\n    \"description\": \"This is a description of the new project.\"\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/v1/projects",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"projects"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.27.0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.10"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 30 Aug 2024 13:15:53 GMT"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": 13,\n        \"name\": \"New Project 2\",\n        \"description\": \"This is a description of the new project.\",\n        \"created_at\": \"2024-08-30T13:15:53.000000Z\",\n        \"updated_at\": \"2024-08-30T13:15:53.000000Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "UpdateProject",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Updated Project Name\",\n    \"description\": \"Updated description of the project.\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v1/projects/2",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"projects",
+								"2"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "UpdateProject",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Updated Project Name\",\n    \"description\": \"Updated description of the project.\"\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/v1/projects/13",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"projects",
+										"13"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.27.0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.10"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 30 Aug 2024 13:16:12 GMT"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": 13,\n        \"name\": \"Updated Project Name\",\n        \"description\": \"Updated description of the project.\",\n        \"created_at\": \"2024-08-30T13:15:53.000000Z\",\n        \"updated_at\": \"2024-08-30T13:16:12.000000Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "ShowProject",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/v1/projects/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"projects",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "ShowProject",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/api/v1/projects/13",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"projects",
+										"13"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.27.0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.10"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 30 Aug 2024 13:16:30 GMT"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": 13,\n        \"name\": \"Updated Project Name\",\n        \"description\": \"Updated description of the project.\",\n        \"created_at\": \"2024-08-30T13:15:53.000000Z\",\n        \"updated_at\": \"2024-08-30T13:16:12.000000Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "ListProjects",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/v1/projects/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"projects",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "ListProjects",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/api/v1/projects",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"projects"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.27.0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.10"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 30 Aug 2024 13:16:38 GMT"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"id\": 13,\n            \"name\": \"Updated Project Name\",\n            \"description\": \"Updated description of the project.\",\n            \"created_at\": \"2024-08-30T13:15:53.000000Z\",\n            \"updated_at\": \"2024-08-30T13:16:12.000000Z\"\n        },\n        {\n            \"id\": 12,\n            \"name\": \"New Project 2\",\n            \"description\": \"This is a description of the new project.\",\n            \"created_at\": \"2024-08-30T12:55:55.000000Z\",\n            \"updated_at\": \"2024-08-30T12:55:55.000000Z\"\n        },\n        {\n            \"id\": 11,\n            \"name\": \"New Proj\",\n            \"description\": \"om is oomomsdmomscomdomom\",\n            \"created_at\": \"2024-08-30T11:38:05.000000Z\",\n            \"updated_at\": \"2024-08-30T11:38:05.000000Z\"\n        },\n        {\n            \"id\": 4,\n            \"name\": \"Fuga debitis eum velit.\",\n            \"description\": \"Neque nam nulla minima maxime ut at soluta. Illum rerum quod amet autem impedit expedita ad. Temporibus repellendus provident maiores in non.\",\n            \"created_at\": \"2024-08-30T11:07:31.000000Z\",\n            \"updated_at\": \"2024-08-30T11:07:31.000000Z\"\n        },\n        {\n            \"id\": 5,\n            \"name\": \"Error culpa qui voluptas.\",\n            \"description\": \"Et neque eum voluptatem repudiandae iste incidunt. Deleniti totam libero molestiae fugit. Eum porro est ut fugiat voluptas hic. Est ipsam quae aut nulla quaerat.\",\n            \"created_at\": \"2024-08-30T11:07:31.000000Z\",\n            \"updated_at\": \"2024-08-30T11:07:31.000000Z\"\n        }\n    ],\n    \"links\": {\n        \"first\": \"http://project-management-tool.test/api/v1/projects?page=1\",\n        \"last\": \"http://project-management-tool.test/api/v1/projects?page=3\",\n        \"prev\": null,\n        \"next\": \"http://project-management-tool.test/api/v1/projects?page=2\"\n    },\n    \"meta\": {\n        \"current_page\": 1,\n        \"from\": 1,\n        \"last_page\": 3,\n        \"links\": [\n            {\n                \"url\": null,\n                \"label\": \"&laquo; Previous\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://project-management-tool.test/api/v1/projects?page=1\",\n                \"label\": \"1\",\n                \"active\": true\n            },\n            {\n                \"url\": \"http://project-management-tool.test/api/v1/projects?page=2\",\n                \"label\": \"2\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://project-management-tool.test/api/v1/projects?page=3\",\n                \"label\": \"3\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://project-management-tool.test/api/v1/projects?page=2\",\n                \"label\": \"Next &raquo;\",\n                \"active\": false\n            }\n        ],\n        \"path\": \"http://project-management-tool.test/api/v1/projects\",\n        \"per_page\": 5,\n        \"to\": 5,\n        \"total\": 13\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "DeleteProject",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/v1/projects/3",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"projects",
+								"3"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "DeleteProjectAcessDenied",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/api/v1/projects/2",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"projects",
+										"2"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.27.0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.10"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 30 Aug 2024 13:15:33 GMT"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Unauthorized access to this task.\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Task",
+			"item": [
+				{
+					"name": "CreatTask",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"project_id\": 3,\n    \"name\": \"New Task oko\",\n    \"description\": \"This is a description of the new task.\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v1/tasks",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"tasks"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "CreateTask",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"project_id\": 3,\n    \"name\": \"New Task oko\",\n    \"description\": \"This is a description of the new task.\"\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/v1/tasks",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"tasks"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.27.0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.10"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 30 Aug 2024 10:02:40 GMT"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": 13,\n        \"name\": \"New Task oko\",\n        \"description\": \"This is a description of the new task.\",\n        \"status\": \"todo\",\n        \"user_id\": 1,\n        \"created_at\": \"2024-08-30T10:02:40.000000Z\",\n        \"updated_at\": \"2024-08-30T10:02:40.000000Z\",\n        \"project\": {\n            \"id\": 3,\n            \"name\": \"New Project 22\",\n            \"description\": \"This is a description of the new project.\",\n            \"created_at\": \"2024-08-30T08:55:07.000000Z\",\n            \"updated_at\": \"2024-08-30T09:57:52.000000Z\"\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "UpdateTask",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Updated Task Name\",\n    \"description\": \"Updated description of the task.\",\n    \"status\": \"in-progress\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v1/tasks/10",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"tasks",
+								"10"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "UpdateTaskAccessDenied",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Updated Task Name\",\n    \"description\": \"Updated description of the task.\",\n    \"status\": \"in-progress\"\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/v1/tasks/10",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"tasks",
+										"10"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.27.0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.10"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 30 Aug 2024 13:10:11 GMT"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Unauthorized access to this task.\"\n}"
+						},
+						{
+							"name": "UpdateTask",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Updated Task Name\",\n    \"description\": \"Updated description of the task.\",\n    \"status\": \"in-progress\"\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/v1/tasks/10",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"tasks",
+										"10"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.27.0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.10"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 30 Aug 2024 13:11:00 GMT"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": 10,\n        \"name\": \"Updated Task Name\",\n        \"description\": \"Updated description of the task.\",\n        \"status\": \"in-progress\",\n        \"user_id\": 3,\n        \"created_at\": \"2024-08-30T11:07:31.000000Z\",\n        \"updated_at\": \"2024-08-30T13:11:00.000000Z\",\n        \"project\": {\n            \"id\": 1,\n            \"name\": \"Laudantium in veniam.\",\n            \"description\": \"Tenetur dolor voluptatem et eum. Quia error voluptas quia praesentium sit suscipit necessitatibus. Suscipit rerum aliquid corporis commodi dicta qui impedit vel. Consequatur alias dignissimos possimus ducimus reiciendis.\",\n            \"created_at\": \"2024-08-30T11:07:31.000000Z\",\n            \"updated_at\": \"2024-08-30T11:07:31.000000Z\"\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "ShowTask",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/v1/tasks/6",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"tasks",
+								"6"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "ShowTask",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/api/v1/tasks/6",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"tasks",
+										"6"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.27.0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.10"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 30 Aug 2024 13:09:23 GMT"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": 6,\n        \"name\": \"Mollitia ut deserunt laborum.\",\n        \"description\": \"Magnam error labore hic reiciendis possimus. Quasi sequi inventore alias porro fuga. Dolores assumenda ex reiciendis nobis ipsa. Ipsam ad quos sunt pariatur est.\",\n        \"status\": \"in-progress\",\n        \"user_id\": 3,\n        \"created_at\": \"2024-08-30T11:07:31.000000Z\",\n        \"updated_at\": \"2024-08-30T11:07:31.000000Z\",\n        \"project\": {\n            \"id\": 1,\n            \"name\": \"Laudantium in veniam.\",\n            \"description\": \"Tenetur dolor voluptatem et eum. Quia error voluptas quia praesentium sit suscipit necessitatibus. Suscipit rerum aliquid corporis commodi dicta qui impedit vel. Consequatur alias dignissimos possimus ducimus reiciendis.\",\n            \"created_at\": \"2024-08-30T11:07:31.000000Z\",\n            \"updated_at\": \"2024-08-30T11:07:31.000000Z\"\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "ListProjectTasks",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/v1/tasks",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"tasks"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "ListProjectTasks",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/api/v1/tasks",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"tasks"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.27.0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.10"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 30 Aug 2024 13:11:24 GMT"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"id\": 104,\n            \"name\": \"New Task oko\",\n            \"description\": \"This is a description of the new task.\",\n            \"status\": \"todo\",\n            \"user_id\": 2,\n            \"created_at\": \"2024-08-30T12:56:09.000000Z\",\n            \"updated_at\": \"2024-08-30T12:56:09.000000Z\",\n            \"project\": {\n                \"id\": 12,\n                \"name\": \"New Project 2\",\n                \"description\": \"This is a description of the new project.\",\n                \"created_at\": \"2024-08-30T12:55:55.000000Z\",\n                \"updated_at\": \"2024-08-30T12:55:55.000000Z\"\n            }\n        },\n        {\n            \"id\": 103,\n            \"name\": \"omom\",\n            \"description\": \"omomomomo\",\n            \"status\": \"todo\",\n            \"user_id\": 1,\n            \"created_at\": \"2024-08-30T12:15:24.000000Z\",\n            \"updated_at\": \"2024-08-30T12:15:24.000000Z\",\n            \"project\": {\n                \"id\": 1,\n                \"name\": \"Laudantium in veniam.\",\n                \"description\": \"Tenetur dolor voluptatem et eum. Quia error voluptas quia praesentium sit suscipit necessitatibus. Suscipit rerum aliquid corporis commodi dicta qui impedit vel. Consequatur alias dignissimos possimus ducimus reiciendis.\",\n                \"created_at\": \"2024-08-30T11:07:31.000000Z\",\n                \"updated_at\": \"2024-08-30T11:07:31.000000Z\"\n            }\n        },\n        {\n            \"id\": 102,\n            \"name\": \"omo Monrovia 234\",\n            \"description\": \"The first two login page needs the user request\",\n            \"status\": \"todo\",\n            \"user_id\": 2,\n            \"created_at\": \"2024-08-30T12:02:37.000000Z\",\n            \"updated_at\": \"2024-08-30T12:02:45.000000Z\",\n            \"project\": {\n                \"id\": 1,\n                \"name\": \"Laudantium in veniam.\",\n                \"description\": \"Tenetur dolor voluptatem et eum. Quia error voluptas quia praesentium sit suscipit necessitatibus. Suscipit rerum aliquid corporis commodi dicta qui impedit vel. Consequatur alias dignissimos possimus ducimus reiciendis.\",\n                \"created_at\": \"2024-08-30T11:07:31.000000Z\",\n                \"updated_at\": \"2024-08-30T11:07:31.000000Z\"\n            }\n        },\n        {\n            \"id\": 101,\n            \"name\": \"Musano\",\n            \"description\": \"The first two login page needs the user request\",\n            \"status\": \"in-progress\",\n            \"user_id\": 2,\n            \"created_at\": \"2024-08-30T11:36:58.000000Z\",\n            \"updated_at\": \"2024-08-30T12:00:30.000000Z\",\n            \"project\": {\n                \"id\": 6,\n                \"name\": \"Natus quis qui perferendis dolores.\",\n                \"description\": \"Vel quia dolorem porro asperiores dolores. Cumque et est non nam. Velit perspiciatis ipsa perferendis neque. Harum beatae id accusamus minus ab saepe.\",\n                \"created_at\": \"2024-08-30T11:07:31.000000Z\",\n                \"updated_at\": \"2024-08-30T11:07:31.000000Z\"\n            }\n        },\n        {\n            \"id\": 100,\n            \"name\": \"Nesciunt accusantium eligendi tempore.\",\n            \"description\": \"Voluptatum veniam nostrum quo nisi voluptates. Placeat mollitia et recusandae qui tenetur et. Error sunt aspernatur dolore repudiandae molestiae.\",\n            \"status\": \"in-progress\",\n            \"user_id\": 3,\n            \"created_at\": \"2024-08-30T11:07:32.000000Z\",\n            \"updated_at\": \"2024-08-30T11:07:32.000000Z\",\n            \"project\": {\n                \"id\": 10,\n                \"name\": \"Illo aut voluptatum.\",\n                \"description\": \"Ut voluptates amet minus aliquid. Itaque aperiam autem quaerat et voluptatem quasi. Aut quisquam est illo voluptatem.\",\n                \"created_at\": \"2024-08-30T11:07:31.000000Z\",\n                \"updated_at\": \"2024-08-30T11:07:31.000000Z\"\n            }\n        },\n        {\n            \"id\": 99,\n            \"name\": \"Et quo nihil.\",\n            \"description\": \"Ratione nostrum corporis ut amet quam molestiae modi. Natus quos at aut aut. Numquam est voluptatem dolores repellendus ipsum magni nostrum harum.\",\n            \"status\": \"todo\",\n            \"user_id\": 2,\n            \"created_at\": \"2024-08-30T11:07:32.000000Z\",\n            \"updated_at\": \"2024-08-30T11:07:32.000000Z\",\n            \"project\": {\n                \"id\": 10,\n                \"name\": \"Illo aut voluptatum.\",\n                \"description\": \"Ut voluptates amet minus aliquid. Itaque aperiam autem quaerat et voluptatem quasi. Aut quisquam est illo voluptatem.\",\n                \"created_at\": \"2024-08-30T11:07:31.000000Z\",\n                \"updated_at\": \"2024-08-30T11:07:31.000000Z\"\n            }\n        },\n        {\n            \"id\": 98,\n            \"name\": \"Exercitationem et omnis soluta.\",\n            \"description\": \"Nisi vel consequuntur sit. Incidunt eum saepe vel dolor rerum.\",\n            \"status\": \"in-progress\",\n            \"user_id\": 3,\n            \"created_at\": \"2024-08-30T11:07:32.000000Z\",\n            \"updated_at\": \"2024-08-30T11:07:32.000000Z\",\n            \"project\": {\n                \"id\": 10,\n                \"name\": \"Illo aut voluptatum.\",\n                \"description\": \"Ut voluptates amet minus aliquid. Itaque aperiam autem quaerat et voluptatem quasi. Aut quisquam est illo voluptatem.\",\n                \"created_at\": \"2024-08-30T11:07:31.000000Z\",\n                \"updated_at\": \"2024-08-30T11:07:31.000000Z\"\n            }\n        },\n        {\n            \"id\": 97,\n            \"name\": \"Et et dolores et.\",\n            \"description\": \"Ut quasi atque aperiam natus. Esse ut incidunt iure rerum optio et fugit neque. Explicabo praesentium autem omnis sed dolorum vel. Omnis dignissimos totam quo voluptatem.\",\n            \"status\": \"todo\",\n            \"user_id\": 2,\n            \"created_at\": \"2024-08-30T11:07:32.000000Z\",\n            \"updated_at\": \"2024-08-30T11:07:32.000000Z\",\n            \"project\": {\n                \"id\": 10,\n                \"name\": \"Illo aut voluptatum.\",\n                \"description\": \"Ut voluptates amet minus aliquid. Itaque aperiam autem quaerat et voluptatem quasi. Aut quisquam est illo voluptatem.\",\n                \"created_at\": \"2024-08-30T11:07:31.000000Z\",\n                \"updated_at\": \"2024-08-30T11:07:31.000000Z\"\n            }\n        },\n        {\n            \"id\": 96,\n            \"name\": \"Id non laboriosam possimus.\",\n            \"description\": \"Sunt voluptas tenetur ullam. Qui ut eius non nulla voluptatem voluptas.\",\n            \"status\": \"in-progress\",\n            \"user_id\": 3,\n            \"created_at\": \"2024-08-30T11:07:32.000000Z\",\n            \"updated_at\": \"2024-08-30T11:07:32.000000Z\",\n            \"project\": {\n                \"id\": 10,\n                \"name\": \"Illo aut voluptatum.\",\n                \"description\": \"Ut voluptates amet minus aliquid. Itaque aperiam autem quaerat et voluptatem quasi. Aut quisquam est illo voluptatem.\",\n                \"created_at\": \"2024-08-30T11:07:31.000000Z\",\n                \"updated_at\": \"2024-08-30T11:07:31.000000Z\"\n            }\n        },\n        {\n            \"id\": 95,\n            \"name\": \"Earum tempora sed est.\",\n            \"description\": \"Fuga laborum quia ut quae. Delectus qui eos et voluptatum enim.\",\n            \"status\": \"done\",\n            \"user_id\": 2,\n            \"created_at\": \"2024-08-30T11:07:32.000000Z\",\n            \"updated_at\": \"2024-08-30T11:07:32.000000Z\",\n            \"project\": {\n                \"id\": 10,\n                \"name\": \"Illo aut voluptatum.\",\n                \"description\": \"Ut voluptates amet minus aliquid. Itaque aperiam autem quaerat et voluptatem quasi. Aut quisquam est illo voluptatem.\",\n                \"created_at\": \"2024-08-30T11:07:31.000000Z\",\n                \"updated_at\": \"2024-08-30T11:07:31.000000Z\"\n            }\n        }\n    ],\n    \"links\": {\n        \"first\": \"http://project-management-tool.test/api/v1/tasks?page=1\",\n        \"last\": \"http://project-management-tool.test/api/v1/tasks?page=10\",\n        \"prev\": null,\n        \"next\": \"http://project-management-tool.test/api/v1/tasks?page=2\"\n    },\n    \"meta\": {\n        \"current_page\": 1,\n        \"from\": 1,\n        \"last_page\": 10,\n        \"links\": [\n            {\n                \"url\": null,\n                \"label\": \"&laquo; Previous\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://project-management-tool.test/api/v1/tasks?page=1\",\n                \"label\": \"1\",\n                \"active\": true\n            },\n            {\n                \"url\": \"http://project-management-tool.test/api/v1/tasks?page=2\",\n                \"label\": \"2\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://project-management-tool.test/api/v1/tasks?page=3\",\n                \"label\": \"3\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://project-management-tool.test/api/v1/tasks?page=4\",\n                \"label\": \"4\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://project-management-tool.test/api/v1/tasks?page=5\",\n                \"label\": \"5\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://project-management-tool.test/api/v1/tasks?page=6\",\n                \"label\": \"6\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://project-management-tool.test/api/v1/tasks?page=7\",\n                \"label\": \"7\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://project-management-tool.test/api/v1/tasks?page=8\",\n                \"label\": \"8\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://project-management-tool.test/api/v1/tasks?page=9\",\n                \"label\": \"9\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://project-management-tool.test/api/v1/tasks?page=10\",\n                \"label\": \"10\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://project-management-tool.test/api/v1/tasks?page=2\",\n                \"label\": \"Next &raquo;\",\n                \"active\": false\n            }\n        ],\n        \"path\": \"http://project-management-tool.test/api/v1/tasks\",\n        \"per_page\": 10,\n        \"to\": 10,\n        \"total\": 100\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "DeleteTask",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/v1/tasks/29",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"tasks",
+								"29"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "DeleteTaskAccessDenied",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/api/v1/tasks/6",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"tasks",
+										"6"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.27.0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.10"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 30 Aug 2024 13:11:54 GMT"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Unauthorized access to this task.\"\n}"
+						},
+						{
+							"name": "DeleteTask",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/api/v1/tasks/6",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"tasks",
+										"6"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.27.0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.10"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 30 Aug 2024 13:12:20 GMT"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Task deleted successfully.\"\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "1|xB6jCCiL2jjLIJ8qCePx1lPAryvD2L3LqVpBl4xg44378aa8",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://project-management-tool.test",
+			"type": "string"
+		}
+	]
+}
