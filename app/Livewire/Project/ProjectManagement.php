@@ -170,6 +170,7 @@ class ProjectManagement extends Component
 
     public function filterProjects()
     {
+        $this->resetPage('projectsPage');
         return $this->projectService->getAllProjects()
             ->where('name', 'like', '%' . $this->search . '%')
             ->orderBy('created_at', 'DESC')
@@ -288,6 +289,7 @@ class ProjectManagement extends Component
 
     public function updatedTaskFilter()
     {
+        $this->resetPage('tasksPage');
         if ($this->currentProject) {
             $this->showTasks($this->currentProject->id);
         }

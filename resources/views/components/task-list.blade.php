@@ -60,17 +60,26 @@
 
                         <div class="flex space-x-2">
                             <div x-data="{ isDisabled: {{ auth()->user()->id !== $task->user_id && !auth()->user()->isAdmin() ? 'true' : 'false' }} }">
-                                <select x-bind:disabled="isDisabled"
-                                    x-bind:title="isDisabled ? '{{ __('You cannot change the status of this task.') }}' : ''"
-                                    wire:change="updateTaskStatus({{ $task->id }}, $event.target.value)"
-                                    class="px-2 py-1 text-xs text-white rounded bg-{{ $task->status->value === 'todo' ? 'yellow' : ($task->status->value === 'in-progress' ? 'blue' : 'green') }}-500">
-                                    @foreach (App\Enums\TaskStatus::cases() as $status)
-                                        <option value="{{ $status->value }}"
-                                            {{ $task->status === $status ? 'selected' : '' }}>
-                                            {{ __($status->name) }}
-                                        </option>
-                                    @endforeach
-                                </select>
+                                <div x-data="{ status: '{{ $task->status->value }}' }">
+                                    <select x-model="status"
+                                        x-bind:class="{
+                                            'bg-yellow-500': status === 'todo',
+                                            'bg-blue-500': status === 'in-progress',
+                                            'bg-green-500': status === 'done'
+                                        }"
+                                        x-bind:disabled="isDisabled"
+                                        x-bind:title="isDisabled ? '{{ __('You cannot change the status of this task.') }}' : ''"
+                                        wire:change="updateTaskStatus({{ $task->id }}, $event.target.value)"
+                                        class="px-2 py-1 text-xs text-white rounded">
+                                        @foreach (App\Enums\TaskStatus::cases() as $status)
+                                            <option value="{{ $status->value }}"
+                                                {{ $task->status === $status ? 'selected' : '' }}>
+                                                {{ __($status->name) }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+
                             </div>
                             <button wire:click="editTask({{ $task->id }})" wire:click.stop
                                 class="flex-1 px-3 py-1 text-sm text-white transition-colors duration-300 bg-yellow-500 rounded-md sm:flex-none hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2 dark:bg-yellow-600 dark:hover:bg-yellow-700 dark:focus:ring-offset-gray-800">
@@ -87,29 +96,27 @@
                     @endif
 
                     <div
-                                class="flex flex-wrap items-center mt-3 space-x-4 text-xs text-gray-500 dark:text-gray-400 sm:text-sm">
-                                <span class="flex items-center">
-                                    <svg class="w-5 h-5 mr-1 text-blue-500 dark:text-blue-400 sm:w-4 sm:h-4"
-                                        fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 00-2 2z">
-                                        </path>
-                                    </svg>
-                                    <span class="text-sm">{{ __('Created') }}:
-                                        {{ $task->created_at->format('M d, Y') }}</span>
-                                </span>
-                                <span class="flex items-center mt-2 sm:mt-0">
-                                    <svg class="w-5 h-5 mr-1 text-green-500 dark:text-green-400 sm:w-4 sm:h-4"
-                                        fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                    </svg>
-                                    <span class="text-sm">{{ __('Updated') }}:
-                                        {{ $task->updated_at->format('M d, Y') }}</span>
-                                </span>
-                            </div>
+                        class="flex flex-wrap items-center mt-3 space-x-4 text-xs text-gray-500 dark:text-gray-400 sm:text-sm">
+                        <span class="flex items-center">
+                            <svg class="w-5 h-5 mr-1 text-blue-500 dark:text-blue-400 sm:w-4 sm:h-4" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 00-2 2z">
+                                </path>
+                            </svg>
+                            <span class="text-sm">{{ __('Created') }}:
+                                {{ $task->created_at->format('M d, Y') }}</span>
+                        </span>
+                        <span class="flex items-center mt-2 sm:mt-0">
+                            <svg class="w-5 h-5 mr-1 text-green-500 dark:text-green-400 sm:w-4 sm:h-4" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <span class="text-sm">{{ __('Updated') }}:
+                                {{ $task->updated_at->format('M d, Y') }}</span>
+                        </span>
+                    </div>
                 </div>
             @empty
                 <p class="text-center text-gray-600 dark:text-gray-400">{{ __('No tasks yet.') }}</p>
