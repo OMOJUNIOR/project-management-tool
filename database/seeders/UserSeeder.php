@@ -16,22 +16,22 @@ class UserSeeder extends Seeder
         // Create the admin user
         User::create([
             'name' => 'Admin User',
-            'email' => 'admin@magicport.ai',
-            'password' => Hash::make('magicport'),
+            'email' => 'admin@admin.com',
+            'password' => Hash::make('adminuser'),
             'is_admin' => true,
         ]);
 
         User::create([
             'name' => 'User One',
-            'email' => 'user1@magicport.ai',
-            'password' => Hash::make('magicport'),
+            'email' => 'user1@user.com',
+            'password' => Hash::make('testuser'),
             'is_admin' => false,
         ]);
 
         User::create([
             'name' => 'User Two',
-            'email' => 'user2@magicport.ai',
-            'password' => Hash::make('magicport'),
+            'email' => 'user2@user.com',
+            'password' => Hash::make('testuser'),
             'is_admin' => false,
         ]);
     }
