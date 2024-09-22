@@ -74,9 +74,9 @@ You can test the live version of the project at [http://dev.beylaai.com](http://
 
     The seeder will create three users:
 
-    Admin: admin@magicport.ai (password: magicport)
-    User One: user1@magicport.ai (password: magicport)
-    User Two: user2@magicport.ai (password: magicport)
+    Admin: admin@admin.com (password: adminuser)
+    User One: user1@user.com (password: testuser)
+    User Two: user2@user.com (password: testuser)
     ```
 
 5. **Run the Application**
